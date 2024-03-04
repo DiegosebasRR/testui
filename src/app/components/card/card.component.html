@@ -1,0 +1,17 @@
+<div class="card w-96 bg-base-100 shadow-xl">
+  <figure>
+    <img src="{{ menu?.image }}" alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">
+      {{ menu?.name }}
+      <div class="badge badge-secondary">{{ menu?.price }}</div>
+    </h2>
+    <p>{{ menu?.description }}</p>
+    <div class="card-actions justify-end">
+      <app-update-modal />
+      <div class="badge badge-outline">Fashion</div>
+      <div class="badge badge-error" (click)="onDeleteMenu()">Delete</div>
+    </div>
+  </div>
+</div>

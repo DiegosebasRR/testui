@@ -1,0 +1,26 @@
+<nav
+  class="sticky bg-white w-full top-0 flex justify-evenly h-20 items-center z-50"
+>
+  <p class="text-4xl font-extrabold">Gaston</p>
+  <ul class="flex gap-16 text-lg font-bold items-center">
+    <li class="hover:text-blue-500">
+      <a routerLink="home" routerLinkActive="">Inicio</a>
+    </li>
+    <li class="hover:text-blue-500"><a routerLink="menu">Menu</a></li>
+    <li class="hover:text-blue-500">
+      <a routerLink="reservation">Rerservacion</a>
+    </li>
+    <li class="hover:text-blue-500"><a routerLink="about">Nosotros</a></li>
+    <li class="hover:text-blue-500"><a routerLink="contact">Contacto</a></li>
+  </ul>
+  <div class="flex gap-2">
+    <app-button title="Ingresar" url="/login" />
+    <app-button title="Registrate" url="/register" />
+    <input
+      type="checkbox"
+      value="synthwave"
+      class="toggle theme-controller"
+      (change)="changeTheme($event)"
+    />
+  </div>
+</nav>

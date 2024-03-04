@@ -1,0 +1,40 @@
+<!-- Open the modal using ID.showModal() method -->
+<button class="btn" (click)="openModal()">open modal</button>
+<dialog [id]="modalId" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <form
+      method="dialog"
+      [formGroup]="menuForm"
+      (ngSubmit)="submitForm()"
+      class="flex flex-col gap-6"
+    >
+      <input
+        formControlName="Name"
+        type="text"
+        placeholder="Nombre"
+        class="input input-bordered input-primary w-full max-w-xs"
+      />
+      <input
+        formControlName="Description"
+        type="text"
+        placeholder="Descripcion"
+        class="input input-bordered input-primary w-full max-w-xs"
+      />
+      <input
+        formControlName="Price"
+        type="number"
+        placeholder="precio"
+        class="input input-bordered input-primary w-full max-w-xs"
+      />
+      <input
+        formControlName="Image"
+        type="text"
+        placeholder="Imagen"
+        class="input input-bordered input-primary w-full max-w-xs"
+      />
+      <button type="submit" class="btn">Crear</button>
+    </form>
+  </div>
+</dialog>
