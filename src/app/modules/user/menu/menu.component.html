@@ -1,15 +1,12 @@
 <div class="max-w-screen-xl m-auto flex flex-col gap-6">
   <app-modal (formSubmitted)="agregarMenu($event)" />
-
-  <button class="btn btn-primary" (click)="editarMenu(1, updatedMenuData)">
-    Editar
-  </button>
+  <app-dialog-update />
   <div class="grid xl:grid-cols-3 gap-10">
     @for (menu of menuList; track $index) {
     <app-card
       [menu]="menu"
       (delete)="deleteMenu($event)"
-      (update)="editarMenu($event, $event)"
+      (update)="editarMenu($event)"
     ></app-card>
     }
   </div>

@@ -19,10 +19,11 @@ export class ModalComponent {
   @Input() id: string | undefined;
 
   menuForm = new FormGroup({
-    Name: new FormControl('', [Validators.required]),
-    Description: new FormControl('', [Validators.required]),
-    Price: new FormControl('', [Validators.required]),
-    Image: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
+    image: new FormControl('', [Validators.required]),
+    categoryId: new FormControl('', [Validators.required]),
   });
 
   submitForm() {

@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -16,37 +22,24 @@ import {
 })
 export class UpdateModalComponent {
   @Output() formSubmitted = new EventEmitter<any>();
-  @Input() id: string | undefined;
-
+  @Input() id: number | undefined = 0;
+  @ViewChild('myModal') modal: any;
   menuForm = new FormGroup({
-    Name: new FormControl('', [Validators.required]),
-    Description: new FormControl('', [Validators.required]),
-    Price: new FormControl('', [Validators.required]),
-    Image: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
+    image: new FormControl('', [Validators.required]),
+    categoryId: new FormControl('', [Validators.required]),
   });
 
   submitForm() {
     if (this.menuForm.valid) {
       this.formSubmitted.emit(this.menuForm.value);
+      this.closeModal();
     }
   }
-  modalId: string = 'update_modal_' + Math.floor(Math.random() * 1000);
-
-  constructor() {}
-
-  openModal(): void {
-    let dynamicId: string;
-    do {
-      dynamicId = 'update_modal_' + Math.floor(Math.random() * 1000);
-    } while (document.getElementById(dynamicId)); // Verificar si el ID generado ya está en uso
-
-    this.modalId = dynamicId;
-
-    const modalElement = document.getElementById(
-      dynamicId
-    ) as HTMLDialogElement;
-    if (modalElement) {
-      modalElement.showModal(); // Abrir el modal
-    }
+  closeModal() {
+    // Cierra el modal
+    this.modal.nativeElement.checked = false;
   }
 }

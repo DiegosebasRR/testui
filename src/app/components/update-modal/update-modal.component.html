@@ -1,9 +1,11 @@
-<!-- Open the modal using ID.showModal() method -->
-<button class="btn" (click)="openModal()">open modal</button>
-<dialog [id]="modalId" class="modal modal-bottom sm:modal-middle">
+<label for="{{ id }}" class="btn">open modal</label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="{{ id }}" class="modal-toggle" />
+<div class="modal" role="dialog ">
   <div class="modal-box">
-    <h3 class="font-bold text-lg">Hello!</h3>
-    <p class="py-4">Press ESC key or click the button below to close</p>
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">This modal works with a hidden checkbox!</p>
     <form
       method="dialog"
       [formGroup]="menuForm"
@@ -11,30 +13,37 @@
       class="flex flex-col gap-6"
     >
       <input
-        formControlName="Name"
+        formControlName="name"
         type="text"
         placeholder="Nombre"
         class="input input-bordered input-primary w-full max-w-xs"
       />
       <input
-        formControlName="Description"
+        formControlName="description"
         type="text"
         placeholder="Descripcion"
         class="input input-bordered input-primary w-full max-w-xs"
       />
       <input
-        formControlName="Price"
+        formControlName="price"
         type="number"
         placeholder="precio"
         class="input input-bordered input-primary w-full max-w-xs"
       />
       <input
-        formControlName="Image"
+        formControlName="image"
         type="text"
         placeholder="Imagen"
         class="input input-bordered input-primary w-full max-w-xs"
       />
-      <button type="submit" class="btn">Crear</button>
+      <input
+        formControlName="categoryId"
+        type="text"
+        placeholder="Category Id"
+        class="input input-bordered input-primary w-full max-w-xs"
+      />
+      <button class="modal-backdrop" type="submit" class="btn">Crear</button>
     </form>
   </div>
-</dialog>
+  <label class="modal-backdrop" for="{{ id }}">Close</label>
+</div>

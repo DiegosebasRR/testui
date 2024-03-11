@@ -11,6 +11,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UpdateModalComponent } from '../../../components/update-modal/update-modal.component';
+import { DialogUpdateComponent } from '../../../components/dialog-update/dialog-update.component';
 
 @Component({
   selector: 'app-menu',
@@ -21,6 +22,7 @@ import { UpdateModalComponent } from '../../../components/update-modal/update-mo
     FormsModule,
     ReactiveFormsModule,
     UpdateModalComponent,
+    DialogUpdateComponent,
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css',
@@ -30,15 +32,6 @@ export class MenuComponent implements OnInit {
 
   menuList: MenuInterface[] = [];
 
-  updatedMenuData: any = {
-    menuId: 1,
-    name: 'actualizado 2',
-    description:
-      'Tender pieces of chicken cooked in a rich and creamy tomato-based sauce.',
-    price: 17.99,
-    image:
-      'https://res.cloudinary.com/dbarwsgb4/image/upload/v1707679246/Mujer/nkqgdwzuv0icyfo9emri.jpg',
-  };
   ngOnInit(): void {
     this.obtenerDatos();
   }
@@ -76,8 +69,8 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  editarMenu(id: number, menuData: MenuInterface): void {
-    this.servicio.updateMenu(id, menuData).subscribe({
+  editarMenu(event: { id: number; menuData: MenuInterface }) {
+    this.servicio.updateMenu(event.id, event.menuData).subscribe({
       next: () => {
         this.obtenerDatos();
         console.log('Menú editado correctamente');

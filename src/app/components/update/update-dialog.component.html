@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Delete sfile</h2>
+<mat-dialog-content>
+  <form class="flex flex-col gap-6">
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Nombre"
+      class="input input-bordered input-primary w-full max-w-xs"
+    />
+    <input
+      formControlName="description"
+      type="text"
+      placeholder="Descripcion"
+      class="input input-bordered input-primary w-full max-w-xs"
+    />
+    <input
+      formControlName="price"
+      type="number"
+      placeholder="precio"
+      class="input input-bordered input-primary w-full max-w-xs"
+    />
+    <input
+      formControlName="image"
+      type="text"
+      placeholder="Imagen"
+      class="input input-bordered input-primary w-full max-w-xs"
+    />
+    <input
+      formControlName="categoryId"
+      type="text"
+      placeholder="Category Id"
+      class="input input-bordered input-primary w-full max-w-xs"
+    />
+    <button class="modal-backdrop" type="submit" class="btn">Crear</button>
+  </form></mat-dialog-content
+>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
